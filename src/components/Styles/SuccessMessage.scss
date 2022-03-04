@@ -1,0 +1,64 @@
+// @import 'helpers';
+.modal-delete{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding-top: 8%;
+    background-color: rgb(22 22 22 / .9);
+    height: 100vh;
+    z-index: 99999;
+    .modal-content{
+        width: 40%;
+        left: 50%;
+        transform: translateX(-50%);
+        @media screen and (max-width: 912px) {
+            width: 70%;
+        }
+        @media screen and (max-width: 540px) {
+            width: 85%;
+            padding: 25px 10px !important;
+        }
+        @media screen and (max-width: 280px) {
+            width: 95%;
+        }
+        i{
+            font-size: 100px;
+            color: #a5dc86;
+            @media screen and (max-width: 414px) {
+                font-size: 90px;
+            }
+            @media screen and (max-width: 280px) {
+                font-size: 70px;
+                margin-bottom: 15px;
+            }
+        }
+        p{
+            font-size: 23px;
+            font-weight: 600;
+            color: rgb(66, 66, 66);
+            @media screen and (max-width: 414px) {
+                font-size: 20px;
+                padding: 10px 0 !important;
+            }
+            @media screen and (max-width: 280px) {
+                font-size: 15px;
+                padding: 5px 0 !important;
+            }
+        }
+        button{
+            font-size: 20px;
+            @media screen and (max-width: 912px) {
+                padding: 10px 30px !important;
+            }
+            @media screen and (max-width: 414px) {
+                font-size: 20px;
+                padding: 5px 20px !important;
+            }
+            @media screen and (max-width: 280px) {
+                font-size: 15px;
+                padding: 3px 20px !important;
+            }
+        }
+    }
+}

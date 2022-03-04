@@ -1,0 +1,83 @@
+table{
+    margin-top: 10px;
+}
+.table>:not(:last-child)>:last-child>* {
+    border-bottom-color: rgb(223, 223, 223);
+    border-bottom-width: 1px;
+}
+tbody{
+    border-color: transparent;
+    &>tr:nth-of-type(even)>* {
+        background-color: rgba(0, 0, 0, 0.05) !important;
+    }
+    button:not(:last-child){
+        @media screen and (max-width: 540px) {
+            margin-inline-end: 5px !important;
+        }
+        @media screen and (max-width: 280px) {
+            margin-bottom: 5px;
+        }
+    }
+    th{
+        padding-left: 15px !important;
+        vertical-align: middle;
+        img{
+            width: 60px;
+            border-radius: 3px;
+            @media screen and (max-width: 820px) {
+                width: 50px;
+            }
+            @media screen and (max-width: 540px) {
+                width: 40px;
+            }
+            @media screen and (max-width: 414px) {
+                width: 25px;
+            }
+        }
+    }
+    td{
+        vertical-align: middle;
+    }
+    td:first-of-type, td:nth-of-type(2){
+        width: calc(40% / 2);
+        @media screen and (max-width: 912px) {
+            width: calc(35% / 2);
+        }
+        @media screen and (max-width: 820px) {
+            width: calc(33% / 2);
+        }
+        @media screen and (max-width: 540px) {
+            width: calc(30% / 2);
+        }
+        @media screen and (max-width: 414px) {
+            width: calc(25% / 2);
+        }
+        @media screen and (max-width: 393px) {
+            width: calc(10% / 2);
+        }
+        @media screen and (max-width: 360px) {
+            width: calc(12% / 2);
+        }
+    }
+    td:last-of-type, td:nth-of-type(3){
+        width: calc(50% / 2);
+        @media screen and (max-width: 912px) {
+            width: calc(55% / 2);
+        }
+        @media screen and (max-width: 820px) {
+            width: calc(60% / 2);
+        }
+        @media screen and (max-width: 540px) {
+            width: calc(70% / 2);
+        }
+        @media screen and (max-width: 414px) {
+            width: calc(70% / 2);
+        }
+        @media screen and (max-width: 393px) {
+            width: calc(70% / 2);
+        }
+        @media screen and (max-width: 360px) {
+            width: calc(75% / 2);
+        }
+    }
+}
