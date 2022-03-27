@@ -1,67 +1,85 @@
-import React, { Fragment, Component } from 'react';
-import './Styles/UsersDetails.scss';
-class UsersDetails extends Component {
-    render() {
-        // distruct props
-        const { displayUpdateForm, displayConfirmDeleteForm } = this.props;
-        let users = '';
-        // all users
-        if (this.props.searchKeyword === '') {
-            users = this.props.users.map(user => {
-                return (
-                    <tr key={user.id}>
-                        <th scope="row">
-                            <img src={user.avatar}></img>
-                        </th>
-                        <td className='user-name'>{user.first_name}</td>
-                        <td className='user-name'>{user.last_name}</td>
-                        <td>{user.email}</td>
-                        <td>
-                            <button className='btn btns p-2 px-3 me-3' onClick={() => displayUpdateForm(user)}>Update</button>
-                            <button className='btn btns bg-danger p-2 px-3 text-white' onClick={() => displayConfirmDeleteForm(user)}>Delete</button>
-                        </td>
-                    </tr>
-                )
-            });
-        }
-        // users searched for
-        else {
-            users = this.props.users.map(user => {
-                if (user.first_name.toLowerCase().includes(this.props.searchKeyword) || user.last_name.toLowerCase().includes(this.props.searchKeyword)) {
-                    return (
-                        <tr key={user.id}>
-                            <th scope="row">
-                                <img src={user.avatar}></img>
-                            </th>
-                            <td className='user-name'>{user.first_name}</td>
-                            <td className='user-name'>{user.last_name}</td>
-                            <td>{user.email}</td>
-                            <td>
-                                <button className='btn btns p-2 px-3 me-3' onClick={() => displayUpdateForm(user)}>Update</button>
-                                <button className='btn btns bg-danger p-2 px-3 text-white' onClick={() => displayConfirmDeleteForm(user)}>Delete</button>
-                            </td>
-                        </tr>
-                    )
-                }
-            });
-        }
+import "./Styles/UsersDetails.scss";
+const UsersDetails = (props) => {
+  // distruct props
+  const { displayUpdateForm, displayConfirmDeleteForm, searchKeyword } = props;
+  let users = "";
+  // all users
+  if (searchKeyword === "") {
+    users = props.users.map((user) => {
+      return (
+        <tr key={user.id}>
+          <th scope="row">
+            <img src={user.avatar}></img>
+          </th>
+          <td className="user-name">{user.first_name}</td>
+          <td className="user-name">{user.last_name}</td>
+          <td>{user.email}</td>
+          <td>
+            <button
+              className="btn btns p-2 px-3 me-3"
+              onClick={() => displayUpdateForm(user)}
+            >
+              Update
+            </button>
+            <button
+              className="btn btns bg-danger p-2 px-3 text-white"
+              onClick={() => displayConfirmDeleteForm(user)}
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      );
+    });
+  }
+  // users searched for
+  else {
+    users = props.users.map((user) => {
+      if (
+        user.first_name.toLowerCase().includes(searchKeyword) ||
+        user.last_name.toLowerCase().includes(searchKeyword)
+      ) {
         return (
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">E-Mail</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {users}
-                </tbody>
-            </table>
+          <tr key={user.id}>
+            <th scope="row">
+              <img src={user.avatar}></img>
+            </th>
+            <td className="user-name">{user.first_name}</td>
+            <td className="user-name">{user.last_name}</td>
+            <td>{user.email}</td>
+            <td>
+              <button
+                className="btn btns p-2 px-3 me-3"
+                onClick={() => displayUpdateForm(user)}
+              >
+                Update
+              </button>
+              <button
+                className="btn btns bg-danger p-2 px-3 text-white"
+                onClick={() => displayConfirmDeleteForm(user)}
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
         );
-    }
-}
+      }
+    });
+  }
+  return (
+    <table className="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">E-Mail</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>{users}</tbody>
+    </table>
+  );
+};
 
 export default UsersDetails;

@@ -1,0 +1,25 @@
+@import 'helpers';
+.modal{
+    padding-top: 30px;
+    background-color: rgb(22 22 22 / .9);
+    transition: .5s;
+    .modal-content{
+        padding: 10px 25px;
+        .modal-title{
+            color: #404040;
+            font-size: 25px;
+            font-weight: 600;
+        }
+        .modal-body{
+            padding: 0;
+            .form-group{
+                margin-top: 15px;
+                label{
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #636262;
+                }
+            }
+        }
+    }
+}
