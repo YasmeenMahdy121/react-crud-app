@@ -36,8 +36,8 @@ const UsersDetails = (props) => {
   else {
     users = props.users.map((user) => {
       if (
-        user.first_name.toLowerCase().includes(searchKeyword) ||
-        user.last_name.toLowerCase().includes(searchKeyword)
+        user.first_name.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+        user.last_name.toLowerCase().includes(searchKeyword.toLowerCase())
       ) {
         return (
           <tr key={user.id}>
