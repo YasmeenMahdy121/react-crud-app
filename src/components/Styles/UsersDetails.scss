@@ -2,20 +2,25 @@ table{
     margin-top: 10px;
 }
 .table>:not(:last-child)>:last-child>* {
-    border-bottom-color: rgb(223, 223, 223);
-    border-bottom-width: 1px;
+    border-bottom-color: rgb(182, 182, 182);
+    border-bottom-width: 2px !important;
 }
 tbody{
     border-color: transparent;
     &>tr:nth-of-type(even)>* {
         background-color: rgba(0, 0, 0, 0.05) !important;
     }
-    button:not(:last-child){
-        @media screen and (max-width: 540px) {
-            margin-inline-end: 5px !important;
+    button{
+        @media screen and (max-width: 393px) {
+            width: 50px;
         }
-        @media screen and (max-width: 280px) {
-            margin-bottom: 5px;
+        &:not(:last-child){
+            @media screen and (max-width: 540px) {
+                margin-inline-end: 5px !important;
+            }
+            @media screen and (max-width: 393px) {
+                margin-bottom: 5px !important;
+            }
         }
     }
     th{

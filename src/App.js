@@ -10,7 +10,7 @@ import UpdateForm from "./components/UpdateForm";
 import DeleteForm from "./components/DeleteForm";
 import SuccessMessage from "./components/SuccessMessage";
 import "./App.scss";
-//////////////////////////////////////////////////////////////stopppppp///////////////////////////////////////
+
 class App extends Component {
   state = {
     users: [],
@@ -24,10 +24,21 @@ class App extends Component {
   };
   // fetch data
   async componentDidMount() {
-    const { data } = await axios.get("./users.json");
-    setTimeout(() => {
-      this.setState({ users: data.users, loading: "d-none" });
-    }, 1000);
+    // check if there are stored data
+    if(localStorage.getItem('crudAppUsers')!==null){
+      const users = JSON.parse(localStorage.getItem('crudAppUsers'));
+      setTimeout(() => {
+        this.setState({ users: users, loading: "d-none" });
+      }, 1000);
+    }
+    // if there aren't stored data we initialize users by data of the json file
+    else{
+      const { data } = await axios.get("./users.json");
+      setTimeout(() => {
+        this.setState({ users: data.users, loading: "d-none" });
+        localStorage.setItem('crudAppUsers',JSON.stringify(data.users))
+      }, 1000);
+    }
   }
   // set Search Keyword
   setSearchKeyword = (searchKeyword) => {
@@ -50,6 +61,7 @@ class App extends Component {
       createForm: "d-none",
       SuccessMessagePopup: "d-block",
     });
+    localStorage.setItem('crudAppUsers',JSON.stringify(users))
   };
   // cancel creation
   cancelCreation = () => {
@@ -80,6 +92,7 @@ class App extends Component {
       userData: "",
       SuccessMessagePopup: "d-block",
     });
+    localStorage.setItem('crudAppUsers',JSON.stringify(users))
   };
   // cancel update
   cancelUpdate = () => {
@@ -103,6 +116,7 @@ class App extends Component {
       userData: "",
       SuccessMessagePopup: "d-block",
     });
+    localStorage.setItem('crudAppUsers',JSON.stringify(users))
   };
   // cancel deletion
   cancelDeletion = () => {

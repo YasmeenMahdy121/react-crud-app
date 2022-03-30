@@ -1,4 +1,5 @@
 import "./Styles/SuccessMessage.scss";
+import { AiOutlineCheckCircle } from "react-icons/ai";
 const SuccessMessage = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
@@ -15,7 +16,7 @@ const SuccessMessage = (props) => {
           onSubmit={onSubmit}
           className="w-100 d-flex flex-column align-items-center justify-content-center"
         >
-          <i className="far fa-check-circle"></i>
+          <AiOutlineCheckCircle className="icon"/>
           <p className="py-4">User {props.userFormStatus} successfully.</p>
           <button type="submit" className="btn btns me-2 p-2 px-5">
             OK

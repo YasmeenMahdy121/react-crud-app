@@ -16,13 +16,13 @@ const UsersDetails = (props) => {
           <td>{user.email}</td>
           <td>
             <button
-              className="btn btns p-2 px-3 me-3"
+              className="btn btns me-3"
               onClick={() => displayUpdateForm(user)}
             >
               Update
             </button>
             <button
-              className="btn btns bg-danger p-2 px-3 text-white"
+              className="btn btns bg-danger text-white"
               onClick={() => displayConfirmDeleteForm(user)}
             >
               Delete
